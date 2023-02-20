@@ -40,6 +40,45 @@ class SlideToActTest extends StatefulWidget {
 bool isUnlock = false;
 
 class _SlideToActTestState extends State<SlideToActTest> {
+  Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(
+                isUnlock == false
+                    ? Icons.lock_outline_rounded
+                    : Icons.lock_open,
+                size: 200,
+                color: Colors.deepOrangeAccent,
+              ),
+              const SizedBox(
+                height: 100,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: SlideAction(
+                  sliderButtonIcon: const Icon(
+                    Icons.lock_open,
+                    color: Colors.deepOrangeAccent,
+                  ),
+                  innerColor: Colors.white,
+                  outerColor: Colors.deepOrangeAccent,
+                  borderRadius: 25.0,
+                  onSubmit: () {
+                    setState(() {
+                      isUnlock = true;
+                    });
+                  },
+                  text: "Slide To Unlock",
+                  textStyle: const TextStyle(
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          )),
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
